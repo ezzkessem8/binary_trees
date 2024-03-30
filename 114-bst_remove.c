@@ -16,16 +16,17 @@ bst_t *bst_remove(bst_t *root, int value)
     else if (value > root->n)
         root->right = bst_remove(root->right, value);
     else {
+        bst_t *temp;
         if (root->left == NULL) {
-            bst_t *temp = root->right;
+            temp = root->right;
             free(root);
             return temp;
         } else if (root->right == NULL) {
-            bst_t *temp = root->left;
+            temp = root->left;
             free(root);
             return temp;
         }
-        bst_t *temp = root->right;
+        temp = root->right;
         while (temp && temp->left != NULL)
             temp = temp->left;
         root->n = temp->n;
