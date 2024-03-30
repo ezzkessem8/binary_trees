@@ -27,7 +27,7 @@ bst_t *bst_remove(bst_t *root, int value)
             return temp;
         }
         temp = root->right;
-        while (temp && temp->left != NULL)
+        while (temp->left != NULL)
             temp = temp->left;
         root->n = temp->n;
         root->right = bst_remove(root->right, temp->n);
